@@ -178,20 +178,15 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .players-pill {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      max-width: 220px;
-    }
-
-    .players-pill span {
-      background: rgba(255,255,255,0.08);
-      border-radius: 50px;
-      padding: 5px 11px;
-      font-size: 12px;
+    .edit-players-btn {
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      color: #aaa;
+      font-size: 13px;
       font-weight: 600;
+      padding: 9px 14px;
+      border-radius: 12px;
+      cursor: pointer;
     }
 
     .games-grid {
@@ -284,6 +279,16 @@
       font-weight: 700;
       line-height: 1.4;
       margin-bottom: 20px;
+    }
+
+    .card-player {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.7;
+      margin-bottom: 10px;
+      min-height: 18px;
     }
 
     .card-sub { font-size: 13px; opacity: 0.75; }
@@ -433,7 +438,7 @@
 <div id="home" class="screen">
   <div class="home-header">
     <div class="home-logo">Muu</div>
-    <div class="players-pill" id="players-pill"></div>
+    <button class="edit-players-btn" onclick="showScreen('welcome')">👥 Jugadores</button>
   </div>
 
   <div class="games-grid">
@@ -468,6 +473,7 @@
   </div>
   <div class="card-area">
     <div class="big-card" style="background:linear-gradient(135deg,#ff6eb4,#c0186e)" onclick="nextCard('yo')">
+      <div class="card-player" id="yo-player"></div>
       <div class="card-text" id="yo-text">Toca para empezar</div>
       <div class="card-sub">Quien lo haya hecho... ¡bebe!</div>
     </div>
@@ -493,6 +499,7 @@
   </div>
   <div class="card-area">
     <div class="big-card" style="background:linear-gradient(135deg,#a855f7,#5b21b6)" onclick="nextCard('vd')">
+      <div class="card-player" id="vd-player"></div>
       <div class="card-text" id="vd-text">Toca para empezar</div>
       <div class="card-sub" id="vd-sub">Elige Verdad o Reto arriba</div>
     </div>
@@ -573,10 +580,12 @@ function renderPlayers() {
 }
 
 function startGame() {
-  document.getElementById('players-pill').innerHTML = players.map(p =>
-    `<span>${p}</span>`
-  ).join('');
   showScreen('home');
+}
+
+function randomPlayer() {
+  if (!players.length) return '';
+  return players[Math.floor(Math.random() * players.length)];
 }
 
 // ── NAVIGATION ──
@@ -616,6 +625,8 @@ function nextCard(type) {
   if (type === 'yo') {
     if (!yoIdx.length) yoIdx = shuffle([...Array(yoNunca.length).keys()]);
     document.getElementById('yo-text').textContent = yoNunca[yoIdx.pop()];
+    const p = randomPlayer();
+    document.getElementById('yo-player').textContent = p ? '👤 ' + p : '';
   } else if (type === 'quien') {
     if (!quienIdx.length) quienIdx = shuffle([...Array(quienPreg.length).keys()]);
     document.getElementById('quien-text').textContent = quienPreg[quienIdx.pop()];
@@ -624,6 +635,8 @@ function nextCard(type) {
     if (!vdIdx.length) vdIdx = shuffle([...Array(list.length).keys()]);
     document.getElementById('vd-text').textContent = list[vdIdx.pop()];
     document.getElementById('vd-sub').textContent = vdMode === 'verdad' ? '¡Di la verdad o bebe!' : '¡Hazlo o bebe!';
+    const p = randomPlayer();
+    document.getElementById('vd-player').textContent = p ? '👤 ' + p : '';
   }
 }
 
