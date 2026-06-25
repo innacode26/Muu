@@ -418,6 +418,221 @@
     .card-rule .rule-title { font-size: 16px; font-weight: 800; color: var(--green); margin-bottom: 6px; }
     .card-rule .rule-desc { font-size: 14px; color: #ccc; line-height: 1.5; }
     .cards-left { color: #555; font-size: 13px; }
+
+    /* ── OCA ── */
+    .btn-oca { background: linear-gradient(135deg, #f59e0b, #b45309); box-shadow: 0 4px 20px #f59e0b50; }
+
+    #oca-peones {
+      align-items: center;
+      padding: 24px 20px 40px;
+      background: linear-gradient(160deg, #1a1000 0%, #0f0f1a 100%);
+      overflow-y: auto;
+    }
+
+    .peon-title {
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    .peon-sub {
+      color: #666;
+      font-size: 13px;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .peon-list {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .peon-row {
+      background: rgba(255,255,255,0.04);
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+
+    .peon-name {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .peon-colors {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .peon-cow {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      cursor: pointer;
+      border: 3px solid transparent;
+      transition: transform 0.15s, border-color 0.15s;
+      user-select: none;
+    }
+
+    .peon-cow:active { transform: scale(0.9); }
+    .peon-cow.selected { border-color: white; transform: scale(1.1); }
+    .peon-cow.taken { opacity: 0.25; pointer-events: none; }
+
+    #oca { background: linear-gradient(180deg, #0a0f00 0%, #0f0f1a 100%); overflow-y: auto; }
+
+    .oca-header {
+      display: flex;
+      align-items: center;
+      padding: 16px 16px 8px;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      background: #0a0f00;
+      z-index: 10;
+    }
+
+    .oca-turn-info {
+      flex: 1;
+      text-align: center;
+    }
+
+    .oca-turn-name {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .oca-turn-sub {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .oca-board-wrap {
+      padding: 8px 10px;
+      overflow-x: auto;
+    }
+
+    .oca-board {
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: 3px;
+      min-width: 306px;
+    }
+
+    .oca-sq {
+      aspect-ratio: 1;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: #888;
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .oca-sq.special { background: rgba(255,255,255,0.12); }
+    .oca-sq .sq-num { font-size: 8px; line-height: 1; }
+    .oca-sq .sq-icon { font-size: 14px; line-height: 1; }
+    .oca-sq .sq-label { font-size: 6px; text-transform: uppercase; letter-spacing: 0.3px; opacity: 0.7; }
+
+    .oca-sq .pawns {
+      position: absolute;
+      bottom: 1px;
+      right: 1px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1px;
+      justify-content: flex-end;
+    }
+
+    .oca-pawn {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      font-size: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .oca-bottom {
+      padding: 12px 16px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .dice-display {
+      font-size: 64px;
+      line-height: 1;
+      transition: transform 0.1s;
+    }
+
+    .roll-btn {
+      background: linear-gradient(135deg, #f59e0b, #b45309);
+      border: none;
+      color: white;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 16px 50px;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px #f59e0b60;
+      transition: transform 0.1s;
+    }
+
+    .roll-btn:active { transform: scale(0.95); }
+    .roll-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .oca-action-box {
+      width: 100%;
+      max-width: 360px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 14px 18px;
+      text-align: center;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .oca-scores {
+      width: 100%;
+      max-width: 360px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .oca-score-tag {
+      border-radius: 50px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
   </style>
 </head>
 <body>
@@ -466,6 +681,10 @@
     <button class="game-btn btn-cartas" onclick="showScreen('cartas')">
       <span class="icon">🃏</span>
       <div class="info">King's Cup<span>El clásico de cartas</span></div>
+    </button>
+    <button class="game-btn btn-oca" onclick="startOca()">
+      <span class="icon">🐄</span>
+      <div class="info">La Oca<span>63 casillas, muchos tragos</span></div>
     </button>
   </div>
 </div>
@@ -539,6 +758,40 @@
     </div>
     <div class="spin-result" id="spin-result">¡Gira la ruleta!</div>
     <button class="spin-btn" id="spin-btn" onclick="spinWheel()">GIRAR</button>
+  </div>
+</div>
+
+<!-- ═══════════ OCA - PEONES ═══════════ -->
+<div id="oca-peones" class="screen">
+  <div class="game-header" style="background:linear-gradient(135deg,#f59e0b,#b45309)">
+    <button class="back-btn" onclick="showScreen('home')">←</button>
+    <span class="game-title">🐄 La Oca</span>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:20px 20px 40px;overflow-y:auto">
+    <p class="peon-sub" style="margin-bottom:20px">Elige el color de tu vaca</p>
+    <div class="peon-list" id="peon-list"></div>
+    <button class="play-btn" id="oca-start-btn" onclick="launchOca()" style="max-width:400px;margin-top:0">Empezar</button>
+  </div>
+</div>
+
+<!-- ═══════════ OCA - TABLERO ═══════════ -->
+<div id="oca" class="screen">
+  <div class="oca-header">
+    <button class="back-btn" onclick="showScreen('home')" style="flex-shrink:0">←</button>
+    <div class="oca-turn-info">
+      <div class="oca-turn-name" id="oca-turn-name">–</div>
+      <div class="oca-turn-sub" id="oca-turn-sub">tu turno</div>
+    </div>
+    <div style="width:42px"></div>
+  </div>
+  <div class="oca-board-wrap">
+    <div class="oca-board" id="oca-board"></div>
+  </div>
+  <div class="oca-bottom">
+    <div class="oca-scores" id="oca-scores"></div>
+    <div class="dice-display" id="oca-dice">🎲</div>
+    <div class="oca-action-box" id="oca-action">¡Tira el dado para empezar!</div>
+    <button class="roll-btn" id="oca-roll-btn" onclick="rollOcaDice()">TIRAR</button>
   </div>
 </div>
 
@@ -852,6 +1105,291 @@ function drawCard() {
 
 function updateCardsLeft() {
   document.getElementById('cards-left').textContent = deck.length + ' cartas restantes';
+}
+
+// ── OCA ──
+const ocaCowColors = ['#ff6eb4','#a855f7','#22d3ee','#fb923c','#4ade80','#ffe04b','#f87171','#818cf8'];
+
+const ocaSpecial = {
+  5:  { icon:'🐄', label:'OCA',    action:'oca',    target:9,  drink:1 },
+  6:  { icon:'🌉', label:'PUENTE', action:'move',   target:12, drink:2 },
+  9:  { icon:'🐄', label:'OCA',    action:'oca',    target:14, drink:1 },
+  12: { icon:'🌉', label:'PUENTE', action:'move',   target:6,  drink:2 },
+  14: { icon:'🐄', label:'OCA',    action:'oca',    target:18, drink:1 },
+  18: { icon:'🐄', label:'OCA',    action:'oca',    target:23, drink:1 },
+  19: { icon:'🍺', label:'POSADA', action:'skip',   turns:1 },
+  23: { icon:'🐄', label:'OCA',    action:'oca',    target:27, drink:1 },
+  26: { icon:'🍻', label:'BEBE',   action:'todos',  drink:2 },
+  27: { icon:'🐄', label:'OCA',    action:'oca',    target:32, drink:1 },
+  31: { icon:'🌀', label:'LABER',  action:'back',   target:24 },
+  32: { icon:'🐄', label:'OCA',    action:'oca',    target:36, drink:1 },
+  36: { icon:'🐄', label:'OCA',    action:'oca',    target:41, drink:1 },
+  38: { icon:'🎯', label:'ELIGE',  action:'choose', drink:2 },
+  41: { icon:'🐄', label:'OCA',    action:'oca',    target:45, drink:1 },
+  42: { icon:'💀', label:'BEBE3',  action:'drink',  drink:3 },
+  45: { icon:'🐄', label:'OCA',    action:'oca',    target:50, drink:1 },
+  50: { icon:'🐄', label:'OCA',    action:'oca',    target:54, drink:1 },
+  52: { icon:'⛓️', label:'CÁRCEL', action:'skip',   turns:2 },
+  54: { icon:'🐄', label:'OCA',    action:'oca',    target:59, drink:1 },
+  58: { icon:'☠️', label:'INICIO', action:'back',   target:1 },
+  59: { icon:'🐄', label:'OCA',    action:'oca',    target:63, drink:1 },
+  63: { icon:'🏆', label:'META',   action:'win' },
+};
+
+const diceEmojis = ['','⚀','⚁','⚂','⚃','⚄','⚅'];
+
+let ocaState = { players:[], current:0, rolling:false };
+
+function startOca() {
+  if (players.length < 2) {
+    alert('Necesitas al menos 2 jugadores para jugar a la Oca.');
+    return;
+  }
+  const list = document.getElementById('peon-list');
+  list.innerHTML = players.map((p, i) => `
+    <div class="peon-row" id="peon-row-${i}">
+      <div class="peon-name" style="color:${playerColors[i]}">${p}</div>
+      <div class="peon-colors" id="peon-opts-${i}">
+        ${ocaCowColors.map((c,ci) => `
+          <div class="peon-cow" style="background:${c}30;border-color:${c}50"
+            onclick="pickPeonColor(${i},${ci})" id="peon-${i}-${ci}" data-color="${c}">🐄</div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+  ocaState.players = players.map((p,i) => ({ name:p, color:playerColors[i], pawnColor:null, pos:0, skip:0 }));
+  showScreen('oca-peones');
+}
+
+function pickPeonColor(playerIdx, colorIdx) {
+  const color = ocaCowColors[colorIdx];
+  const taken = ocaState.players.some((p,i) => i !== playerIdx && p.pawnColor === color);
+  if (taken) return;
+  const prev = ocaState.players[playerIdx].pawnColor;
+  ocaState.players[playerIdx].pawnColor = color;
+  // update UI: unselect previous, select new, mark taken across all rows
+  document.querySelectorAll('.peon-cow').forEach(el => {
+    const c = el.dataset.color;
+    el.classList.remove('selected','taken');
+    const isTaken = ocaState.players.some(p => p.pawnColor === c);
+    if (isTaken) {
+      // only mark taken on OTHER players' rows
+      const rowMatch = el.id.match(/peon-(\d+)-\d+/);
+      if (rowMatch && parseInt(rowMatch[1]) !== ocaState.players.findIndex(p => p.pawnColor === c)) {
+        el.classList.add('taken');
+      }
+    }
+  });
+  // mark selected for this player
+  document.querySelectorAll(`#peon-opts-${playerIdx} .peon-cow`).forEach(el => {
+    el.classList.remove('selected');
+    if (el.dataset.color === color) el.classList.add('selected');
+  });
+  // mark taken colors in all other player rows
+  ocaState.players.forEach((p, pi) => {
+    if (p.pawnColor && pi !== playerIdx) {
+      document.querySelectorAll(`#peon-opts-${playerIdx} .peon-cow`).forEach(el => {
+        if (el.dataset.color === p.pawnColor) el.classList.add('taken');
+      });
+    }
+  });
+  renderPeonSelection();
+}
+
+function renderPeonSelection() {
+  // Re-render taken states for all rows
+  ocaState.players.forEach((player, pi) => {
+    const takenColors = ocaState.players.filter((_,i) => i !== pi).map(p => p.pawnColor).filter(Boolean);
+    document.querySelectorAll(`#peon-opts-${pi} .peon-cow`).forEach(el => {
+      el.classList.remove('taken','selected');
+      if (takenColors.includes(el.dataset.color)) el.classList.add('taken');
+      if (el.dataset.color === player.pawnColor) el.classList.add('selected');
+    });
+  });
+}
+
+function launchOca() {
+  if (ocaState.players.some(p => !p.pawnColor)) {
+    alert('¡Todos los jugadores deben elegir su vaca!');
+    return;
+  }
+  ocaState.current = 0;
+  ocaState.rolling = false;
+  buildOcaBoard();
+  updateOcaBoard();
+  updateOcaTurn();
+  updateOcaScores();
+  document.getElementById('oca-dice').textContent = '🎲';
+  document.getElementById('oca-action').textContent = '¡Tira el dado para empezar!';
+  document.getElementById('oca-roll-btn').disabled = false;
+  showScreen('oca');
+}
+
+function buildOcaBoard() {
+  const board = document.getElementById('oca-board');
+  // Visual order: top-left to bottom-right, snake pattern
+  // Row 0 (top): 55-63 L→R
+  // Row 1: 54-46 R→L (displayed L→R as 54,53,...46)
+  // Row 2: 37-45 L→R
+  // Row 3: 36-28 R→L
+  // Row 4: 19-27 L→R
+  // Row 5: 18-10 R→L
+  // Row 6 (bottom): 1-9 L→R
+  const visualOrder = [
+    55,56,57,58,59,60,61,62,63,
+    54,53,52,51,50,49,48,47,46,
+    37,38,39,40,41,42,43,44,45,
+    36,35,34,33,32,31,30,29,28,
+    19,20,21,22,23,24,25,26,27,
+    18,17,16,15,14,13,12,11,10,
+    1,2,3,4,5,6,7,8,9
+  ];
+  board.innerHTML = visualOrder.map(n => {
+    const sp = ocaSpecial[n];
+    return `<div class="oca-sq${sp?' special':''}" id="sq-${n}">
+      <div class="sq-num">${n}</div>
+      ${sp ? `<div class="sq-icon">${sp.icon}</div><div class="sq-label">${sp.label}</div>` : ''}
+      <div class="pawns" id="pawns-${n}"></div>
+    </div>`;
+  }).join('');
+}
+
+function updateOcaBoard() {
+  // Clear all pawns
+  document.querySelectorAll('.pawns').forEach(el => el.innerHTML = '');
+  // Place pawns
+  ocaState.players.forEach(p => {
+    const pos = p.pos;
+    const container = document.getElementById(`pawns-${pos}`);
+    if (container) {
+      container.innerHTML += `<div class="oca-pawn" style="background:${p.pawnColor}">🐄</div>`;
+    }
+  });
+}
+
+function updateOcaTurn() {
+  const p = ocaState.players[ocaState.current];
+  const el = document.getElementById('oca-turn-name');
+  el.textContent = p.name;
+  el.style.color = p.pawnColor;
+  document.getElementById('oca-turn-sub').textContent = p.skip > 0 ? `pierde ${p.skip} turno${p.skip>1?'s':''}` : 'tu turno';
+}
+
+function updateOcaScores() {
+  document.getElementById('oca-scores').innerHTML = ocaState.players.map(p =>
+    `<div class="oca-score-tag" style="background:${p.pawnColor}20;border:1.5px solid ${p.pawnColor}60;color:${p.pawnColor}">
+      🐄 ${p.name}: ${p.pos}/63
+    </div>`
+  ).join('');
+}
+
+function rollOcaDice() {
+  if (ocaState.rolling) return;
+  const p = ocaState.players[ocaState.current];
+  // Skip turn if needed
+  if (p.skip > 0) {
+    p.skip--;
+    document.getElementById('oca-action').textContent = `${p.name} pierde este turno. Quedan ${p.skip} turno${p.skip!==1?'s':''} de penalización.`;
+    nextOcaTurn();
+    return;
+  }
+  ocaState.rolling = true;
+  document.getElementById('oca-roll-btn').disabled = true;
+  const diceEl = document.getElementById('oca-dice');
+  // Animate dice
+  let ticks = 0;
+  const interval = setInterval(() => {
+    diceEl.textContent = diceEmojis[Math.floor(Math.random()*6)+1];
+    ticks++;
+    if (ticks >= 10) {
+      clearInterval(interval);
+      const roll = Math.floor(Math.random()*6)+1;
+      diceEl.textContent = diceEmojis[roll];
+      moveOcaPlayer(roll);
+    }
+  }, 80);
+}
+
+function moveOcaPlayer(roll) {
+  const p = ocaState.players[ocaState.current];
+  let newPos = Math.min(p.pos + roll, 63);
+  p.pos = newPos;
+  updateOcaBoard();
+  updateOcaScores();
+  // Scroll board to show player
+  const sq = document.getElementById(`sq-${newPos}`);
+  if (sq) sq.scrollIntoView({ behavior:'smooth', block:'center' });
+  applyOcaSquare(newPos);
+}
+
+function applyOcaSquare(pos) {
+  const p = ocaState.players[ocaState.current];
+  const sp = ocaSpecial[pos];
+  const actionEl = document.getElementById('oca-action');
+
+  if (!sp) {
+    actionEl.textContent = `${p.name} avanza a la casilla ${pos}. Sin acción especial.`;
+    ocaState.rolling = false;
+    nextOcaTurn();
+    return;
+  }
+
+  switch(sp.action) {
+    case 'oca':
+      p.pos = sp.target;
+      updateOcaBoard();
+      updateOcaScores();
+      actionEl.textContent = `🐄 OCA! ${p.name} avanza a la ${sp.target} y bebe ${sp.drink} trago${sp.drink>1?'s':''}.`;
+      if (sp.target === 63) { finishOca(p); return; }
+      break;
+    case 'move':
+      p.pos = sp.target;
+      updateOcaBoard();
+      updateOcaScores();
+      actionEl.textContent = `🌉 PUENTE! ${p.name} salta a la ${sp.target} y bebe ${sp.drink} tragos.`;
+      break;
+    case 'skip':
+      p.skip = sp.turns;
+      actionEl.textContent = `${sp.icon} ${p.name} pierde ${sp.turns} turno${sp.turns>1?'s':''}.`;
+      break;
+    case 'todos':
+      actionEl.textContent = `🍻 ¡TODOS beben ${sp.drink} tragos!`;
+      break;
+    case 'drink':
+      actionEl.textContent = `💀 ${p.name} bebe ${sp.drink} tragos. ¡Mala suerte!`;
+      break;
+    case 'choose':
+      actionEl.textContent = `🎯 ${p.name} elige a alguien para que beba ${sp.drink} tragos.`;
+      break;
+    case 'back':
+      p.pos = sp.target;
+      updateOcaBoard();
+      updateOcaScores();
+      const backMsg = sp.target === 1 ? `☠️ ${p.name} vuelve al INICIO.` : `🌀 ${p.name} vuelve a la casilla ${sp.target}.`;
+      actionEl.textContent = backMsg;
+      break;
+    case 'win':
+      finishOca(p);
+      return;
+  }
+  ocaState.rolling = false;
+  nextOcaTurn();
+}
+
+function finishOca(p) {
+  document.getElementById('oca-action').textContent = `🏆 ¡${p.name} ha ganado la Oca! ¡Todos los demás beben 3 tragos!`;
+  document.getElementById('oca-roll-btn').disabled = true;
+  document.getElementById('oca-turn-sub').textContent = '¡FIN!';
+  ocaState.rolling = false;
+}
+
+function nextOcaTurn() {
+  setTimeout(() => {
+    ocaState.current = (ocaState.current + 1) % ocaState.players.length;
+    updateOcaTurn();
+    document.getElementById('oca-roll-btn').disabled = false;
+    ocaState.rolling = false;
+  }, 1500);
 }
 
 // ── UTILS ──
