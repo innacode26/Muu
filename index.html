@@ -15,7 +15,6 @@
       --orange: #fb923c;
       --green: #4ade80;
       --bg: #0f0f1a;
-      --card: #1a1a2e;
     }
 
     body {
@@ -26,35 +25,173 @@
       overflow-x: hidden;
     }
 
-    /* ── SCREENS ── */
     .screen { display: none; min-height: 100vh; }
     .screen.active { display: flex; flex-direction: column; }
 
-    /* ── HOME ── */
-    #home {
+    /* ── WELCOME ── */
+    #welcome {
       align-items: center;
-      padding: 40px 20px;
-      background: linear-gradient(135deg, #0f0f1a 0%, #1a0a2e 100%);
+      padding: 50px 24px 40px;
+      background: linear-gradient(160deg, #0f0f1a 0%, #1a0a2e 100%);
     }
 
     .logo {
-      font-size: 72px;
+      font-size: 80px;
       font-weight: 900;
-      letter-spacing: -2px;
+      letter-spacing: -3px;
       background: linear-gradient(90deg, var(--pink), var(--yellow), var(--cyan));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       text-align: center;
     }
 
     .tagline {
-      color: #888;
-      font-size: 14px;
+      color: #666;
+      font-size: 13px;
       margin-bottom: 40px;
       text-align: center;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .players-section {
+      width: 100%;
+      max-width: 400px;
+      flex: 1;
+    }
+
+    .players-section h3 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #666;
+      margin-bottom: 14px;
+    }
+
+    .add-player-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .add-player-row input {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 15px 16px;
+      color: white;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .add-player-row input::placeholder { color: #444; }
+    .add-player-row input:focus { border-color: var(--pink); }
+
+    .add-player-row button {
+      background: linear-gradient(135deg, var(--pink), #ff3a8c);
+      border: none;
+      color: white;
+      font-size: 24px;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: transform 0.1s;
+    }
+
+    .add-player-row button:active { transform: scale(0.93); }
+
+    .players-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      min-height: 36px;
+    }
+
+    .player-tag {
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.13);
+      border-radius: 50px;
+      padding: 8px 14px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .player-tag button {
+      background: none;
+      border: none;
+      color: #666;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .play-btn {
+      width: 100%;
+      max-width: 400px;
+      margin-top: 32px;
+      padding: 20px;
+      border-radius: 20px;
+      border: none;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: white;
+      font-size: 20px;
+      font-weight: 900;
       letter-spacing: 2px;
       text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 6px 30px rgba(255,110,180,0.4);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .play-btn:active { transform: scale(0.97); box-shadow: 0 3px 15px rgba(255,110,180,0.3); }
+
+    /* ── GAMES MENU ── */
+    #home {
+      align-items: center;
+      padding: 30px 20px 40px;
+      background: linear-gradient(160deg, #0f0f1a 0%, #1a0a2e 100%);
+    }
+
+    .home-header {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .home-logo {
+      font-size: 36px;
+      font-weight: 900;
+      background: linear-gradient(90deg, var(--pink), var(--yellow), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .players-pill {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      max-width: 220px;
+    }
+
+    .players-pill span {
+      background: rgba(255,255,255,0.08);
+      border-radius: 50px;
+      padding: 5px 11px;
+      font-size: 12px;
+      font-weight: 600;
     }
 
     .games-grid {
@@ -77,20 +214,19 @@
       font-weight: 700;
       color: white;
       text-align: left;
-      transition: transform 0.15s, box-shadow 0.15s;
+      transition: transform 0.15s;
     }
 
     .game-btn:active { transform: scale(0.97); }
-
     .game-btn .icon { font-size: 32px; }
     .game-btn .info { display: flex; flex-direction: column; }
     .game-btn .info span { font-size: 12px; font-weight: 400; opacity: 0.8; margin-top: 2px; }
 
-    .btn-yo     { background: linear-gradient(135deg, #ff6eb4, #ff3a8c); box-shadow: 0 4px 20px #ff6eb460; }
-    .btn-vd     { background: linear-gradient(135deg, #a855f7, #7c3aed); box-shadow: 0 4px 20px #a855f760; }
-    .btn-quien  { background: linear-gradient(135deg, #22d3ee, #0891b2); box-shadow: 0 4px 20px #22d3ee60; }
-    .btn-ruleta { background: linear-gradient(135deg, #fb923c, #ea580c); box-shadow: 0 4px 20px #fb923c60; }
-    .btn-cartas { background: linear-gradient(135deg, #4ade80, #16a34a); box-shadow: 0 4px 20px #4ade8060; }
+    .btn-yo     { background: linear-gradient(135deg, #ff6eb4, #ff3a8c); box-shadow: 0 4px 20px #ff6eb450; }
+    .btn-vd     { background: linear-gradient(135deg, #a855f7, #7c3aed); box-shadow: 0 4px 20px #a855f750; }
+    .btn-quien  { background: linear-gradient(135deg, #22d3ee, #0891b2); box-shadow: 0 4px 20px #22d3ee50; }
+    .btn-ruleta { background: linear-gradient(135deg, #fb923c, #ea580c); box-shadow: 0 4px 20px #fb923c50; }
+    .btn-cartas { background: linear-gradient(135deg, #4ade80, #16a34a); box-shadow: 0 4px 20px #4ade8050; }
 
     /* ── GAME HEADER ── */
     .game-header {
@@ -114,10 +250,7 @@
       justify-content: center;
     }
 
-    .game-title {
-      font-size: 22px;
-      font-weight: 800;
-    }
+    .game-title { font-size: 22px; font-weight: 800; }
 
     /* ── CARD ── */
     .card-area {
@@ -153,13 +286,10 @@
       margin-bottom: 20px;
     }
 
-    .card-sub {
-      font-size: 13px;
-      opacity: 0.75;
-    }
+    .card-sub { font-size: 13px; opacity: 0.75; }
 
     .tap-hint {
-      color: #666;
+      color: #555;
       font-size: 13px;
       text-align: center;
       padding: 12px 20px 30px;
@@ -178,11 +308,7 @@
       padding: 20px;
     }
 
-    .wheel-container {
-      position: relative;
-      width: 280px;
-      height: 280px;
-    }
+    .wheel-container { position: relative; width: 280px; height: 280px; }
 
     #wheel-canvas {
       border-radius: 50%;
@@ -229,7 +355,7 @@
       justify-content: center;
     }
 
-    /* ── CARTAS (KING'S CUP) ── */
+    /* ── CARTAS ── */
     #cartas { background: linear-gradient(180deg, #0a1a0a 0%, #0f0f1a 100%); }
 
     .deck-area {
@@ -261,32 +387,12 @@
 
     .playing-card:active { transform: scale(0.96); }
     .playing-card.red { color: #dc2626; }
-
-    .playing-card .card-val {
-      font-size: 52px;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .playing-card .card-suit {
-      font-size: 40px;
-    }
-
-    .playing-card .card-corner {
-      position: absolute;
-      font-size: 18px;
-      font-weight: 900;
-      line-height: 1;
-    }
-
+    .playing-card .card-val { font-size: 52px; font-weight: 900; line-height: 1; }
+    .playing-card .card-suit { font-size: 40px; }
+    .playing-card .card-corner { position: absolute; font-size: 18px; font-weight: 900; line-height: 1; }
     .playing-card .card-corner.tl { top: 12px; left: 14px; }
     .playing-card .card-corner.br { bottom: 12px; right: 14px; transform: rotate(180deg); }
-
-    .playing-card.back {
-      background: linear-gradient(135deg, #16a34a, #166534);
-      color: white;
-      font-size: 48px;
-    }
+    .playing-card.back { background: linear-gradient(135deg, #16a34a, #166534); color: white; font-size: 48px; }
 
     .card-rule {
       background: rgba(74,222,128,0.15);
@@ -298,31 +404,37 @@
       width: 100%;
     }
 
-    .card-rule .rule-title {
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--green);
-      margin-bottom: 6px;
-    }
-
-    .card-rule .rule-desc {
-      font-size: 14px;
-      color: #ccc;
-      line-height: 1.5;
-    }
-
-    .cards-left {
-      color: #666;
-      font-size: 13px;
-    }
+    .card-rule .rule-title { font-size: 16px; font-weight: 800; color: var(--green); margin-bottom: 6px; }
+    .card-rule .rule-desc { font-size: 14px; color: #ccc; line-height: 1.5; }
+    .cards-left { color: #555; font-size: 13px; }
   </style>
 </head>
 <body>
 
-<!-- ═══════════ HOME ═══════════ -->
-<div id="home" class="screen active">
+<!-- ═══════════ WELCOME ═══════════ -->
+<div id="welcome" class="screen active">
   <div class="logo">Muu</div>
   <p class="tagline">juegos de beber</p>
+
+  <div class="players-section">
+    <h3>Jugadores</h3>
+    <div class="add-player-row">
+      <input type="text" id="player-input" placeholder="Añadir jugador..." maxlength="20"
+        onkeydown="if(event.key==='Enter') addPlayer()" />
+      <button onclick="addPlayer()">+</button>
+    </div>
+    <div class="players-list" id="players-list"></div>
+  </div>
+
+  <button class="play-btn" onclick="startGame()">¡Jugar!</button>
+</div>
+
+<!-- ═══════════ MENÚ JUEGOS ═══════════ -->
+<div id="home" class="screen">
+  <div class="home-header">
+    <div class="home-logo">Muu</div>
+    <div class="players-pill" id="players-pill"></div>
+  </div>
 
   <div class="games-grid">
     <button class="game-btn btn-yo" onclick="showScreen('yo-nunca')">
@@ -350,12 +462,12 @@
 
 <!-- ═══════════ YO NUNCA ═══════════ -->
 <div id="yo-nunca" class="screen">
-  <div class="game-header" style="background: linear-gradient(135deg,#ff6eb4,#ff3a8c)">
+  <div class="game-header" style="background:linear-gradient(135deg,#ff6eb4,#ff3a8c)">
     <button class="back-btn" onclick="showScreen('home')">←</button>
     <span class="game-title">🙅 Yo Nunca</span>
   </div>
   <div class="card-area">
-    <div class="big-card" style="background: linear-gradient(135deg,#ff6eb4,#c0186e)" onclick="nextCard('yo')">
+    <div class="big-card" style="background:linear-gradient(135deg,#ff6eb4,#c0186e)" onclick="nextCard('yo')">
       <div class="card-text" id="yo-text">Toca para empezar</div>
       <div class="card-sub">Quien lo haya hecho... ¡bebe!</div>
     </div>
@@ -365,11 +477,11 @@
 
 <!-- ═══════════ VERDAD O RETO ═══════════ -->
 <div id="verdad-reto" class="screen">
-  <div class="game-header" style="background: linear-gradient(135deg,#a855f7,#7c3aed)">
+  <div class="game-header" style="background:linear-gradient(135deg,#a855f7,#7c3aed)">
     <button class="back-btn" onclick="showScreen('home')">←</button>
     <span class="game-title">🎭 Verdad o Reto</span>
   </div>
-  <div style="display:flex; gap:12px; padding:0 20px 10px;">
+  <div style="display:flex;gap:12px;padding:0 20px 10px">
     <button onclick="setVDMode('verdad')" id="btn-verdad"
       style="flex:1;padding:14px;border-radius:16px;border:2px solid #a855f7;background:#a855f720;color:white;font-size:16px;font-weight:700;cursor:pointer">
       🤔 Verdad
@@ -380,7 +492,7 @@
     </button>
   </div>
   <div class="card-area">
-    <div class="big-card" style="background: linear-gradient(135deg,#a855f7,#5b21b6)" onclick="nextCard('vd')">
+    <div class="big-card" style="background:linear-gradient(135deg,#a855f7,#5b21b6)" onclick="nextCard('vd')">
       <div class="card-text" id="vd-text">Toca para empezar</div>
       <div class="card-sub" id="vd-sub">Elige Verdad o Reto arriba</div>
     </div>
@@ -390,12 +502,12 @@
 
 <!-- ═══════════ QUIEN ═══════════ -->
 <div id="quien" class="screen">
-  <div class="game-header" style="background: linear-gradient(135deg,#22d3ee,#0891b2)">
+  <div class="game-header" style="background:linear-gradient(135deg,#22d3ee,#0891b2)">
     <button class="back-btn" onclick="showScreen('home')">←</button>
     <span class="game-title">👆 ¿Quién es más probable?</span>
   </div>
   <div class="card-area">
-    <div class="big-card" style="background: linear-gradient(135deg,#22d3ee,#0e7490)" onclick="nextCard('quien')">
+    <div class="big-card" style="background:linear-gradient(135deg,#22d3ee,#0e7490)" onclick="nextCard('quien')">
       <div class="card-text" id="quien-text">Toca para empezar</div>
       <div class="card-sub">Todos señalan... ¡quien tenga más dedos bebe!</div>
     </div>
@@ -405,7 +517,7 @@
 
 <!-- ═══════════ RULETA ═══════════ -->
 <div id="ruleta" class="screen">
-  <div class="game-header" style="background: linear-gradient(135deg,#fb923c,#ea580c)">
+  <div class="game-header" style="background:linear-gradient(135deg,#fb923c,#ea580c)">
     <button class="back-btn" onclick="showScreen('home')">←</button>
     <span class="game-title">🎡 Ruleta de Tragos</span>
   </div>
@@ -421,7 +533,7 @@
 
 <!-- ═══════════ CARTAS ═══════════ -->
 <div id="cartas" class="screen">
-  <div class="game-header" style="background: linear-gradient(135deg,#4ade80,#16a34a)">
+  <div class="game-header" style="background:linear-gradient(135deg,#4ade80,#16a34a)">
     <button class="back-btn" onclick="showScreen('home')">←</button>
     <span class="game-title">🃏 King's Cup</span>
   </div>
@@ -436,6 +548,37 @@
 </div>
 
 <script>
+// ── PLAYERS ──
+let players = [];
+
+function addPlayer() {
+  const input = document.getElementById('player-input');
+  const name = input.value.trim();
+  if (!name || players.includes(name)) { input.value = ''; return; }
+  players.push(name);
+  input.value = '';
+  input.focus();
+  renderPlayers();
+}
+
+function removePlayer(idx) {
+  players.splice(idx, 1);
+  renderPlayers();
+}
+
+function renderPlayers() {
+  document.getElementById('players-list').innerHTML = players.map((p, i) => `
+    <div class="player-tag">${p}<button onclick="removePlayer(${i})">×</button></div>
+  `).join('');
+}
+
+function startGame() {
+  document.getElementById('players-pill').innerHTML = players.map(p =>
+    `<span>${p}</span>`
+  ).join('');
+  showScreen('home');
+}
+
 // ── NAVIGATION ──
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -457,7 +600,7 @@ const yoNunca = [
   "Yo nunca he bailado en la barra de un bar",
   "Yo nunca he salido de casa sin ducharme",
   "Yo nunca he mentido en Instagram",
-  "Yo nunca he liorado con una peli de Disney",
+  "Yo nunca he llorado con una peli de Disney",
   "Yo nunca he comido comida del suelo",
   "Yo nunca he tenido un crush con un profe",
   "Yo nunca he fingido tener planes para no salir",
@@ -467,7 +610,9 @@ const yoNunca = [
   "Yo nunca he comprado algo caro y escondido el precio",
   "Yo nunca he dormido más de 12 horas seguidas",
 ];
-let yoIdx = []; function nextCard(type) {
+let yoIdx = [];
+
+function nextCard(type) {
   if (type === 'yo') {
     if (!yoIdx.length) yoIdx = shuffle([...Array(yoNunca.length).keys()]);
     document.getElementById('yo-text').textContent = yoNunca[yoIdx.pop()];
@@ -489,7 +634,7 @@ const verdades = [
   "¿Cuál es la mentira más grande que le has dicho a tus padres?",
   "¿A quién de aquí eliminarías de tus contactos?",
   "¿Cuál es tu mayor inseguridad?",
-  "¿Con quién de aquí no saldrias nunca?",
+  "¿Con quién de aquí no saldrías nunca?",
   "¿Qué es lo más raro que has buscado en Google?",
   "¿Cuál fue tu peor cita?",
   "¿Alguna vez has hecho algo ilegal?",
@@ -501,7 +646,7 @@ const verdades = [
   "¿Cuál es la cosa más vergonzosa que tienes en el móvil?",
 ];
 const retos = [
-  "Llama a alguien y dile que te gustan los ajos y cuélga",
+  "Llama a alguien y dile que te gustan los ajos y cuelga",
   "Habla con acento de otro país durante 3 minutos",
   "Muestra el último meme que enviaste",
   "Haz una foto rara y ponla de foto de perfil 10 minutos",
@@ -510,7 +655,7 @@ const retos = [
   "Escribe un poema de amor sobre la persona a tu izquierda",
   "Llama a alguien y habla en inglés toda la llamada",
   "Muestra tu último estado de WhatsApp",
-  "Haz tu mejor cara sexy y que alguien te haga foto",
+  "Haz tu mejor cara sexy y que alguien te haga una foto",
   "Deja que alguien del grupo cambie tu bio de Instagram",
   "Baila 30 segundos sin música",
   "Di algo bonito a cada persona del grupo",
@@ -518,12 +663,13 @@ const retos = [
   "Intenta lamer tu codo (nadie puede, pero inténtalo)",
 ];
 let vdMode = 'verdad', vdIdx = [];
+
 function setVDMode(m) {
   vdMode = m; vdIdx = [];
   document.getElementById('btn-verdad').style.borderColor = m === 'verdad' ? '#a855f7' : 'transparent';
-  document.getElementById('btn-verdad').style.background = m === 'verdad' ? '#a855f720' : 'rgba(255,255,255,0.05)';
-  document.getElementById('btn-reto').style.borderColor = m === 'reto' ? '#a855f7' : 'transparent';
-  document.getElementById('btn-reto').style.background = m === 'reto' ? '#a855f720' : 'rgba(255,255,255,0.05)';
+  document.getElementById('btn-verdad').style.background  = m === 'verdad' ? '#a855f720' : 'rgba(255,255,255,0.05)';
+  document.getElementById('btn-reto').style.borderColor   = m === 'reto'   ? '#a855f7' : 'transparent';
+  document.getElementById('btn-reto').style.background    = m === 'reto'   ? '#a855f720' : 'rgba(255,255,255,0.05)';
 }
 
 // ── QUIÉN ──
@@ -543,7 +689,7 @@ const quienPreg = [
   "¿Quién es más probable que tenga una mascota exótica?",
   "¿Quién es más probable que se tatúe una frase en latín?",
   "¿Quién es más probable que viva en otro país en 10 años?",
-  "¿Quién es más probable que olvidar su propio cumpleaños?",
+  "¿Quién es más probable que olvide su propio cumpleaños?",
   "¿Quién es más probable que haga una dieta y la abandone al día siguiente?",
   "¿Quién es más probable que hable solo/a en voz alta?",
   "¿Quién es más probable que sea adicto/a a los reality shows?",
@@ -553,14 +699,14 @@ let quienIdx = [];
 
 // ── RULETA ──
 const ruletaItems = [
-  { text: "1 trago", color: "#ff6eb4" },
-  { text: "2 tragos", color: "#a855f7" },
-  { text: "3 tragos", color: "#22d3ee" },
-  { text: "Todos beben", color: "#fb923c" },
+  { text: "1 trago",              color: "#ff6eb4" },
+  { text: "2 tragos",             color: "#a855f7" },
+  { text: "3 tragos",             color: "#22d3ee" },
+  { text: "Todos beben",          color: "#fb923c" },
   { text: "Tú eliges quién bebe", color: "#4ade80" },
-  { text: "El de tu izquierda bebe", color: "#ffe04b" },
-  { text: "El de tu derecha bebe", color: "#f87171" },
-  { text: "¡Salvado! Nadie bebe", color: "#818cf8" },
+  { text: "El de tu izquierda",   color: "#ffe04b" },
+  { text: "El de tu derecha",     color: "#f87171" },
+  { text: "¡Salvado!",            color: "#818cf8" },
 ];
 
 let isSpinning = false, wheelAngle = 0;
@@ -636,40 +782,37 @@ function spinWheel() {
 const suits = ['♠','♥','♦','♣'];
 const values = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
 const kingRules = {
-  'A': { title: 'As – Waterfall 🌊', desc: 'Todos empiezan a beber. No puedes parar hasta que la persona anterior pare. El que saca la carta para primero.' },
-  '2': { title: '2 – Tú 👈', desc: 'Elige a alguien para que beba.' },
-  '3': { title: '3 – Yo 👆', desc: 'El que sacó la carta bebe.' },
-  '4': { title: '4 – Chicas 💅', desc: 'Todas las chicas beben.' },
-  '5': { title: '5 – Ponte 🤚', desc: 'El último en levantar la mano bebe.' },
-  '6': { title: '6 – Chicos 💪', desc: 'Todos los chicos beben.' },
-  '7': { title: '7 – Cielo ☁️', desc: 'El último en señalar al techo bebe.' },
-  '8': { title: '8 – Pareja 👫', desc: 'Elige a alguien. Cada vez que tú bebas, esa persona bebe contigo.' },
-  '9': { title: '9 – Rima 🎤', desc: 'Di una palabra. Todos deben decir algo que rime. El primero que no lo consiga, bebe.' },
-  '10': { title: '10 – Categoría 📦', desc: 'Di una categoría (marcas de coches, capitales…). Todos dicen cosas de esa categoría. El primero que no puede bebe.' },
-  'J': { title: 'J – Norma 📜', desc: 'Inventa una norma que todos deben seguir hasta el final del juego. Quien la rompa bebe.' },
-  'Q': { title: 'Q – Pregunta 🤔', desc: 'Puedes hacerle una pregunta a alguien. Esa persona te hace otra pregunta a ti (o a otro). El primero que responda (en vez de preguntar) bebe.' },
-  'K': { title: 'K – King 👑', desc: 'Echa lo que quieras en el vaso del centro. El 4º rey en salir bebe TODO el vaso. ¡Suerte!' },
+  'A':  { title: 'As – Waterfall 🌊', desc: 'Todos empiezan a beber. No puedes parar hasta que la persona anterior pare.' },
+  '2':  { title: '2 – Tú 👈',         desc: 'Elige a alguien para que beba.' },
+  '3':  { title: '3 – Yo 👆',         desc: 'El que sacó la carta bebe.' },
+  '4':  { title: '4 – Chicas 💅',     desc: 'Todas las chicas beben.' },
+  '5':  { title: '5 – Ponte 🤚',      desc: 'El último en levantar la mano bebe.' },
+  '6':  { title: '6 – Chicos 💪',     desc: 'Todos los chicos beben.' },
+  '7':  { title: '7 – Cielo ☁️',      desc: 'El último en señalar al techo bebe.' },
+  '8':  { title: '8 – Pareja 👫',     desc: 'Elige a alguien. Cada vez que tú bebas, esa persona bebe contigo.' },
+  '9':  { title: '9 – Rima 🎤',       desc: 'Di una palabra. Todos deben decir algo que rime. El primero que no pueda, bebe.' },
+  '10': { title: '10 – Categoría 📦', desc: 'Di una categoría. Todos dicen cosas de esa categoría. El primero que no pueda, bebe.' },
+  'J':  { title: 'J – Norma 📜',      desc: 'Inventa una norma que todos deben seguir. Quien la rompa bebe.' },
+  'Q':  { title: 'Q – Pregunta 🤔',   desc: 'Hazle una pregunta a alguien. Esa persona te pregunta a ti. El primero que responda bebe.' },
+  'K':  { title: 'K – King 👑',        desc: 'Echa algo en el vaso del centro. El 4º rey en salir bebe TODO el vaso. ¡Suerte!' },
 };
-let deck = [], drawnCard = null;
+let deck = [];
+
 function initDeck() {
-  const existing = deck.length;
-  if (existing === 0 || existing === 52) {
-    deck = [];
-    suits.forEach(s => values.forEach(v => deck.push({ v, s })));
-    deck = shuffle(deck);
-    drawnCard = null;
-    document.getElementById('card-display').className = 'playing-card back';
-    document.getElementById('card-display').innerHTML = '🂠';
-    document.getElementById('card-rule').style.display = 'none';
-    updateCardsLeft();
-  }
+  if (deck.length > 0) return;
+  suits.forEach(s => values.forEach(v => deck.push({ v, s })));
+  deck = shuffle(deck);
+  document.getElementById('card-display').className = 'playing-card back';
+  document.getElementById('card-display').innerHTML = '🂠';
+  document.getElementById('card-rule').style.display = 'none';
+  updateCardsLeft();
 }
+
 function drawCard() {
   if (!deck.length) {
-    document.getElementById('spin-result');
-    document.getElementById('card-rule').style.display = 'flex';
+    document.getElementById('card-rule').style.display = 'block';
     document.getElementById('rule-title').textContent = '¡Fin de la baraja!';
-    document.getElementById('rule-desc').textContent = 'Toca "←" y vuelve a entrar para reiniciar.';
+    document.getElementById('rule-desc').textContent = 'Vuelve al menú y reentra para reiniciar.';
     return;
   }
   const card = deck.pop();
@@ -688,6 +831,7 @@ function drawCard() {
   document.getElementById('rule-desc').textContent = rule.desc;
   updateCardsLeft();
 }
+
 function updateCardsLeft() {
   document.getElementById('cards-left').textContent = deck.length + ' cartas restantes';
 }
