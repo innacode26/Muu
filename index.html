@@ -114,15 +114,14 @@
     }
 
     .player-tag {
-      background: rgba(255,255,255,0.07);
-      border: 1.5px solid rgba(255,255,255,0.13);
       border-radius: 50px;
       padding: 8px 14px;
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 700;
       display: flex;
       align-items: center;
       gap: 8px;
+      color: white;
     }
 
     .player-tag button {
@@ -479,7 +478,6 @@
   </div>
   <div class="card-area">
     <div class="big-card" style="background:linear-gradient(135deg,#ff6eb4,#c0186e)" onclick="nextCard('yo')">
-      <div class="card-player" id="yo-player"></div>
       <div class="card-text" id="yo-text">Toca para empezar</div>
       <div class="card-sub">Quien lo haya hecho... ¡bebe!</div>
     </div>
@@ -562,13 +560,15 @@
 
 <script>
 // ── PLAYERS ──
-let players = [];
+const tagColors = ['#ff6eb4','#a855f7','#22d3ee','#fb923c','#4ade80','#ffe04b','#f87171','#818cf8'];
+let players = [], playerColors = [];
 
 function addPlayer() {
   const input = document.getElementById('player-input');
   const name = input.value.trim();
   if (!name || players.includes(name)) { input.value = ''; return; }
   players.push(name);
+  playerColors.push(tagColors[players.length % tagColors.length]);
   input.value = '';
   input.focus();
   renderPlayers();
@@ -576,12 +576,13 @@ function addPlayer() {
 
 function removePlayer(idx) {
   players.splice(idx, 1);
+  playerColors.splice(idx, 1);
   renderPlayers();
 }
 
 function renderPlayers() {
   document.getElementById('players-list').innerHTML = players.map((p, i) => `
-    <div class="player-tag">${p}<button onclick="removePlayer(${i})">×</button></div>
+    <div class="player-tag" style="background:${playerColors[i]}30;border:1.5px solid ${playerColors[i]}80;color:${playerColors[i]}">${p}<button onclick="removePlayer(${i})" style="color:${playerColors[i]}">×</button></div>
   `).join('');
 }
 
@@ -631,8 +632,6 @@ function nextCard(type) {
   if (type === 'yo') {
     if (!yoIdx.length) yoIdx = shuffle([...Array(yoNunca.length).keys()]);
     document.getElementById('yo-text').textContent = yoNunca[yoIdx.pop()];
-    const p = randomPlayer();
-    document.getElementById('yo-player').textContent = p ? '👤 ' + p : '';
   } else if (type === 'quien') {
     if (!quienIdx.length) quienIdx = shuffle([...Array(quienPreg.length).keys()]);
     document.getElementById('quien-text').textContent = quienPreg[quienIdx.pop()];
